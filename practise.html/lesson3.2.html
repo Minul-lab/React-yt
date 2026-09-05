@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lesson 3.2</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        const [name, setName] = React.useState("")
+        const text = (event) => {
+            setName(event.target.value)
+        }
+        const reset = ()=> {
+            setName("")
+        }
+        const example = () =>{
+            setName("Minul")
+        }
+        return(
+        <>
+        <input type="text" placeholder="type a name here" onChange={text}/>
+        <p>hello { name || "world"}</p>
+        <button onClick= {reset}>Reset</button>
+        <button onClick= {example}>Example</button>
+        </>
+        )
+
+      }
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
+  </body>
+</html>

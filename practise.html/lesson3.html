@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lesson 3</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+      
+      
+      const Counter = (props) => {
+        
+        return (
+          <>
+            <button onClick={props.onClick}>Clicked {props.count} times</button>
+          </>
+        );
+      };
+
+      const App = () => {
+         const [count, setCount] = React.useState(0);
+        const handleClick = () => {
+          setCount(count + 1);
+        };
+        const rstClick = () => {
+            setCount(0)
+        }
+        return (
+          <>
+            <Counter onClick={handleClick} count = {count}/>
+            <Counter onClick={handleClick} count = {count}/>
+            <button onClick= {rstClick}>Reset</button>
+          </>
+        );
+      };
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
