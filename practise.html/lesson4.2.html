@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lesson2</title>
+    <style>
+        button {
+            background-color: rgb(0, 123, 255);
+            color:white;
+            padding:10px 20px;
+            margin: 10px;
+            border-radius:10px;
+        }
+        input{
+            margin: 10px;
+            padding: 10px 30px;
+            font-size: 18px;
+            border: 2px solid black;
+            border-radius: 10px;
+            text-decoration: none;
+            
+        }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const LoginForm = () => {
+        
+        
+            const [a, setA] = React.useState("password")
+            function show(){
+            if( a === "password"){
+                setA("text")
+            }else{
+                setA("password")
+            }
+        }
+        return (
+          <>
+            <div>
+              <input type="text" name="" id="" placeholder="email" />
+            </div>
+            <div>
+              <input type={a} name="" id="" placeholder="password" /> 
+              <button onClick={show}>Show</button>
+            </div>
+            <button>Log in</button>
+          </>
+        );
+      };
+      const App = () => {
+        return (
+          <>
+            <p>Hello, welcome to my site</p>
+            <LoginForm />
+            <button>Sign up</button>
+          </>
+        );
+      };
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
